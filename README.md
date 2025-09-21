@@ -17,10 +17,10 @@ Features:
 
 Cloneing the repo
 ```bash
-git clone git@github.com:harsh1504660/DJango-backend-Alemeno.git
+git clone https://github.com/harsh1504660/DJango-backend-Alemeno.git
 ```
 ```bash
-cd DJango-backend-Alemeno
+cd .\DJango-backend-Alemeno\
 ```
 
 Running the container
