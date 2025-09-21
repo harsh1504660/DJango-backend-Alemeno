@@ -13,7 +13,6 @@ Features:
   - GET  /api/view-loans/<customer_id>/
 - Dockerized (web, db, redis, worker). Run `docker-compose up --build`.
 
-Notes:
-- The uploaded Excel files should be mounted into the container at `/data/customer_data.xlsx` and `/data/loan_data.xlsx`.
-- For development without Docker you can run `pip install -r requirements.txt`, create a Postgres DB, update settings, run migrations, then start django and celery worker.
-
+## Setup 
+```bash
+git clone xyz

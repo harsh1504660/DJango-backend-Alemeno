@@ -1,0 +1,31 @@
+POST http://localhost:8000/api/register/  :
+{
+  "first_name": "Harsh",
+  "last_name": "Joshi",
+  "age": 30,
+  "monthly_income": 50000,
+  "phone_number": "9999999999"
+}
+
+POST http://localhost:8000/api/check-eligibility/  :
+{
+  "customer_id": 301,
+  "loan_amount": 200000,
+  "interest_rate": 10,
+  "tenure": 12
+}
+
+
+POST http://localhost:8000/api/create-loan/  :
+{
+  "customer_id": 301,
+  "loan_amount": 200000,
+  "interest_rate": 10,
+  "tenure": 12
+}
+
+
+GET http://localhost:8000/api/view-loan/1/  : 
+
+
+GET http://localhost:8000/api/view-loans/1/  :
