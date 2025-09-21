@@ -38,33 +38,24 @@ Shut down the container
 docker-compose down -v
 ```
 
-flowchart TD
+## Architecture Overview
+```mermaid
+graph TD
+    A[customer_data.xlsx] -->|ingest_data| B[(Postgres DB)]
+    C[loan_data.xlsx] -->|ingest_data| B
 
-    subgraph DataIngestion[Data Ingestion]
-        A1[customer_data.xlsx] -->|Ingest| DB[(Postgres Database)]
-        A2[loan_data.xlsx] -->|Ingest| DB
+    subgraph API[REST API Endpoints]
+        D1[POST /api/register/] --> B
+        D2[POST /api/check-eligibility/] --> E[Eligibility Rules]
+        E --> B
+        D3[POST /api/create-loan/] --> B
+        D4[GET /api/view-loan/{loan_id}/] --> B
+        D5[GET /api/view-loans/{customer_id}/] --> B
     end
 
-    subgraph DjangoApp[Django + DRF APIs]
-        B1[POST /api/register/] --> DB
-        B2[POST /api/check-eligibility/] --> Logic[Rule-based Credit Scoring]
-        Logic --> DB
-        B3[POST /api/create-loan/] --> DB
-        B4[GET /api/view-loan/{loan_id}/] --> DB
-        B5[GET /api/view-loans/{customer_id}/] --> DB
+    subgraph Infra[Background Services]
+        F[Celery Worker] -->|runs ingest_data| B
+        G[Redis Broker] --> F
+        G --> API
     end
-
-    subgraph CeleryWorker[Celery Worker]
-        W1[Background Task: ingest_data] --> DB
-    end
-
-    subgraph Infra[Infrastructure]
-        DB[(Postgres)]
-        R[(Redis - Broker)]
-    end
-
-    DataIngestion --> CeleryWorker
-    CeleryWorker --> DjangoApp
-    DjangoApp --> R
-    CeleryWorker --> R
 
