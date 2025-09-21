@@ -49,8 +49,8 @@ graph TD
         D2[POST /api/check-eligibility/] --> E[Eligibility Rules]
         E --> B
         D3[POST /api/create-loan/] --> B
-        D4[GET /api/view-loan/{loan_id}/] --> B
-        D5[GET /api/view-loans/{customer_id}/] --> B
+        D4[GET /api/view-loan/(loan_id)] --> B
+        D5[GET /api/view-loans/(customer_id)] --> B
     end
 
     subgraph Infra[Background Services]
@@ -58,4 +58,5 @@ graph TD
         G[Redis Broker] --> F
         G --> API
     end
+
 
