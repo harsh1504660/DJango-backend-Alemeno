@@ -44,7 +44,7 @@ graph TD
     A[customer_data.xlsx] -->|ingest_data| B[(Postgres DB)]
     C[loan_data.xlsx] -->|ingest_data| B
 
-    subgraph API[REST API Endpoints]
+    subgraph API ["REST API Endpoints"]
         D1[POST /api/register/] --> B
         D2[POST /api/check-eligibility/] --> E[Eligibility Rules]
         E --> B
@@ -53,10 +53,9 @@ graph TD
         D5[GET /api/view-loans/(customer_id)] --> B
     end
 
-    subgraph Infra[Background Services]
+    subgraph Infra ["Background Services"]
         F[Celery Worker] -->|runs ingest_data| B
         G[Redis Broker] --> F
         G --> API
     end
-
 
