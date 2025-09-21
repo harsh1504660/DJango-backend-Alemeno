@@ -2,7 +2,7 @@
 
 This project implements the backend assignment "Credit Approval System" using Django, Django REST Framework, PostgreSQL, Celery (with Redis), and Docker Compose.
 
-🔗 **Demo video Link**: [Link](https://voicecast-ai.netlify.app/)
+🔗 **Demo video Link**: [Link](https://drive.google.com/file/d/1CVv_rO6Q9ygRAHACW2R7JhIpNpISbN3m/view)
 
 Features:
 - Data models for Customer and Loan data.
