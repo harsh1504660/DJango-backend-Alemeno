@@ -13,6 +13,15 @@ Features:
   - GET  /api/view-loans/<customer_id>/
 - Dockerized (web, db, redis, worker). Run `docker-compose up --build`.
 
-## Setup 
+## Setup
+
+Cloneing the repo
 ```bash
 git clone xyz
+```
+```bash
+cd xyz
+```
+docker
+```bash
+jay hind
